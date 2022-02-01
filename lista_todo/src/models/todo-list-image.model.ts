@@ -1,7 +1,18 @@
-import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {belongsTo, Entity, model, property} from '@loopback/repository';
 import {TodoList} from './todo-list.model';
 
-@model()
+@model({
+  settings: {
+    foreignKeys: {
+      fk_todoListImage_todoListId: {
+        name: 'fk_todoListImage_todoListId',
+        entity: 'TodoList',
+        entityKey: 'id',
+        foreignKey: 'todolistid',
+      },
+    },
+  },
+})
 export class TodoListImage extends Entity {
   @property({
     type: 'number',
