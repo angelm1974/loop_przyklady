@@ -1,30 +1,26 @@
+import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  response,
+  del, get,
+  getModelSchemaRef, param, patch, post, put, requestBody,
+  response
 } from '@loopback/rest';
 import {Todo} from '../models';
 import {TodoRepository} from '../repositories';
 
+@authenticate('jwt')
 export class TodoController {
   constructor(
     @repository(TodoRepository)
-    public todoRepository : TodoRepository,
-  ) {}
+    public todoRepository: TodoRepository,
+  ) { }
 
   @post('/todos')
   @response(200, {

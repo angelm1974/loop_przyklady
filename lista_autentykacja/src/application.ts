@@ -1,13 +1,17 @@
+//-----------------AUTENTYKACJA------------------------------
+import {AuthenticationComponent} from '@loopback/authentication';
+import {JWTAuthenticationComponent, UserServiceBindings} from '@loopback/authentication-jwt';
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig} from '@loopback/core';
-import {
-  RestExplorerBindings,
-  RestExplorerComponent,
-} from '@loopback/rest-explorer';
 import {RepositoryMixin} from '@loopback/repository';
 import {RestApplication} from '@loopback/rest';
+import {
+  RestExplorerBindings,
+  RestExplorerComponent
+} from '@loopback/rest-explorer';
 import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
+import {PostgresdbDataSource} from './datasources';
 import {MySequence} from './sequence';
 
 export {ApplicationConfig};
@@ -40,5 +44,9 @@ export class ListaTodoApplication extends BootMixin(
         nested: true,
       },
     };
+    //---AUTENTYKACJA------
+    this.component(AuthenticationComponent);
+    this.component(JWTAuthenticationComponent);
+    this.dataSource(PostgresdbDataSource, UserServiceBindings.DATASOURCE_NAME);
   }
 }
