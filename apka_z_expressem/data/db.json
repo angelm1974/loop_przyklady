@@ -1,0 +1,13 @@
+{
+  "ids": {
+    "Todo": 5
+  },
+  "models": {
+    "Todo": {
+      "1": "{\"tytul\":\"aa\",\"opis\":\"fdfd\",\"czyZakonczone\":true,\"id\":1}",
+      "2": "{\"tytul\":\"aa\",\"opis\":\"fdfd\",\"czyZakonczone\":true,\"id\":2}",
+      "3": "{\"tytul\":\"aa\",\"opis\":\"fdfd\",\"czyZakonczone\":true,\"id\":3}",
+      "4": "{\"tytul\":\"string\",\"opis\":\"string\",\"czyZakonczone\":true,\"podajAdres\":\"9466 Georgia Ave. #66 Silver Spring, MD 20910\",\"podajGeo\":\"39.010403, -77.04089\",\"id\":4}"
+    }
+  }
+}
