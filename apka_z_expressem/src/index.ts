@@ -1,17 +1,19 @@
-import {ApplicationConfig, TodoAppApplication} from './application';
+import { ApplicationConfig, ExpressServer } from './server'
+//`import {ApplicationConfig, TodoAppApplication} from './application';
 
 export * from './application';
 
 export async function main(options: ApplicationConfig = {}) {
-  const app = new TodoAppApplication(options);
+  const app = new ExpressServer(options);
   await app.boot();
   await app.start();
+  console.log('Serewer zaczął się uruchamiać na porcie http://localhost:3000');
 
-  const url = app.restServer.url;
-  console.log(`Server is running at ${url}`);
-  console.log(`Try ${url}/ping`);
+  // const url = app.restServer.url;
+  // console.log(`Server is running at ${url}`);
+  // console.log(`Try ${url}/ping`);
 
-  return app;
+  // return app;
 }
 
 if (require.main === module) {
